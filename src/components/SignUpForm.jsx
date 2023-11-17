@@ -1,6 +1,7 @@
 import {React, useState} from "react";
 
 const API_URL = `https://fsa-jwt-practice.herokuapp.com/signup`;
+const MIN_LENGTH = 8;
 
 const SignUpForm = ({token, setToken}) => {
 
@@ -14,6 +15,10 @@ const SignUpForm = ({token, setToken}) => {
 		try {
 			if (username === `` || password === ``) {
 				setError(`Username and password cannot be empty.`);
+				return;
+			};
+			if (username.length < MIN_LENGTH || password.length < MIN_LENGTH) {
+				setError(`Username and password must be at least 8 characters long.`);
 				return;
 			};
 
@@ -39,7 +44,7 @@ const SignUpForm = ({token, setToken}) => {
 	return (
 	<section>
 		<h2>Sign Up</h2>
-		{error && <p>{error}</p>}
+		{error && <p className="error">{error}</p>}
 		<form className="column-flex">
 			<label className="row-flex">
 				Username: <input required type="text" value={username} onChange={(event) => {

@@ -1,3 +1,9 @@
+:root {
+	--success-green: #8d9e83;
+	--warning-orange: #f7913e;
+	--icy-blue: #abdacd;
+}
+
 .column-flex {
 	display: flex;
 	flex-direction: column;
@@ -10,4 +16,16 @@
 	gap: 1rem;
 	justify-content: center;
 	align-items: center;
+}
+
+.success {
+	color: var(--success-green);
+}
+
+.error {
+	color: var(--warning-orange);
+}
+
+button {
+	color: var(--icy-blue);
 }

@@ -37,12 +37,12 @@ const Authenticate = ({token, setToken}) => {
 		<h2>Authenticate</h2>
 		{
 			successMessage === SUCCESS && 
-			<div className="row-flex">
+			<div className="success">
 				<p>{successMessage}</p>
 				<p>You are logged in as: {successData.username}</p>
 			</div>
 		}
-		{error && <p>{error}</p>}
+		{error && <p className="error">{error}</p>}
 		<button onClick={handleClick}>Authenticate Token</button>
 	</>);
 };
