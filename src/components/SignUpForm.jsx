@@ -2,13 +2,15 @@ import {React, useState} from "react";
 
 const API_URL = `https://fsa-jwt-practice.herokuapp.com/signup`;
 
-const SignUpForm = () => {
+const SignUpForm = ({token, setToken}) => {
+	
 	const [username, setUsername] = useState(``);
 	const [password, setPassword] = useState(``);
 	const [error, setError] = useState(null);
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
+
 		try {
 			const response = await fetch(API_URL, {
 				method: "POST",
@@ -21,7 +23,7 @@ const SignUpForm = () => {
 				}),
 			});
 			const result = await response.json();
-			console.log(result);
+			setToken(result.token);
 		}
 		catch(err) {
 			setError(err);
