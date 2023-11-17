@@ -11,6 +11,7 @@ function App() {
 	return (
 	<>
 		<SignUpForm token={token} setToken={setToken}></SignUpForm>
+		<br/><br/><br/>
 		<Authenticate token={token} setToken={setToken}></Authenticate>
 	</>
 	);
